@@ -22,11 +22,29 @@ namespace JogoDaVida
             pessoa.SetNome(nome);
 
             // Imprimir mensagem de boas-vindas com o nome da pessoa
-            Console.WriteLine($"Muito bem {pessoa.Nome}, nos primeiros meses você deixou seus pais loucos,\nvocê costumava ficar quase todas as noites acordada, tem um lindo quarto, todos te amam, é uma briga para não devolver você para os seus pais,\nvocê tem ótimos tios e tias.");
+            Console.WriteLine($"Muito bem {pessoa.Nome}, nos primeiros meses você deixou seus pais loucos,\nvocê costumava ficar quase todas as noites sem dormir, tem um lindo quarto, todos te amam, é uma briga para não devolver você para os seus pais,\nvocê tem ótimos tios e tias.");
             Console.WriteLine("Passaram alguns anos...");
+            
+            Console.WriteLine("Chegou a hora de ir para escola.");
             Pausa();
 
-            Console.WriteLine("Chegou a hora de ir para escola.");
+
+            // Instanciar um objeto Escola
+            Escola escola = new Escola("", "");
+
+            // Input para o nome da escola
+            Console.WriteLine("Escolha o nome da sua escola:");
+            string nomeEscola = Console.ReadLine();
+            escola.SetNomeEscola(nomeEscola);
+
+            // Input para o nome da professora
+            Console.WriteLine("Qual o nome da sua professora?");
+            string nomeProfessora = Console.ReadLine();
+            escola.SetNomeProfessora(nomeProfessora);
+
+            // Para imprimir os dados da escola
+            Console.WriteLine($"Escola: {escola.NomeEscola}");
+            Console.WriteLine($"Professora: {escola.NomeProfessora}");
         }
 
         // Método para pausar e aguardar entrada do usuário
