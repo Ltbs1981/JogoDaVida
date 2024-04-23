@@ -1,57 +1,68 @@
-﻿using System;
+﻿using JogoDaVida;
+using System;
 
-namespace JogoDaVida
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Boas vindas ao Jogo da vida!\nAqui, você terá um longo caminho em sua jornada.\nVocê escolherá a vida que quiser, pode escolher seu nome, idade, carros, casas, alguém para estar do seu lado, vai poder decidir se quer filhos e todas as outras coisas, a vida ideal.\nSaiba que em cada momento de sua trajetória você terá que cumprir com algumas responsabilidades, mas não se preocupe, pois aqui a vida é sua, e você decidirá o melhor caminho a seguir.");
-            Console.WriteLine("Vamos começar?");
-            Pausa();
+        Console.WriteLine("Boas vindas ao Jogo da vida!\nAqui, você terá um longo caminho em sua jornada.\nVocê escolherá a vida que quiser, pode escolher seu nome, idade, carros, casas, alguém para estar do seu lado, vai poder decidir se quer filhos e todas as outras coisas, a vida ideal.\nSaiba que em cada momento de sua trajetória você terá que cumprir com algumas responsabilidades, mas não se preocupe, pois aqui a vida é sua, e você decidirá o melhor caminho a seguir.");
+        Console.WriteLine("Vamos começar?");
+        Pausa();
 
-            // Instanciar um objeto Pessoa
-            Pessoa pessoa = new Pessoa("", 0);
+        // Instanciar um objeto de certidão de nascimento
+        CertidaoNascimento certidao = new CertidaoNascimento();
 
-            // Input para o nome
-            Console.WriteLine("Então vamos lá!\nVocê acabou de nascer, teve um nascimento lindo, todos te amam, e não viam a hora de você nascer.\nBoas vindas à sua vida!");
-            Console.Write("Qual o seu nome? ");
-            string nome = Console.ReadLine();
+        // Preenchendo os dados da certidão de nascimento
+        certidao.Preencher();
 
-            // Configurar o nome da pessoa
-            pessoa.SetNome(nome);
+        // Exibindo os dados preenchidos
+        Console.WriteLine("\nDados da Certidão de Nascimento:");
+        Console.WriteLine($"Nome: {certidao.Nome}");
+        Console.WriteLine($"Número: {certidao.Numero}");
+        Console.WriteLine($"Data de Emissão: {certidao.DataEmissao}");
+        Console.WriteLine($"Nome do Hospital: {certidao.NomeHospital}");
+        Console.WriteLine($"Nome dos Pais: {certidao.NomePais}");
 
-            // Imprimir mensagem de boas-vindas com o nome da pessoa
-            Console.WriteLine($"Muito bem {pessoa.Nome}, nos primeiros meses você deixou seus pais loucos,\nvocê costumava ficar quase todas as noites sem dormir, tem um lindo quarto, todos te amam, é uma briga para não devolver você para os seus pais,\nvocê tem ótimos tios e tias.");
-            Console.WriteLine("Passaram alguns anos...");
-            
-            Console.WriteLine("Chegou a hora de ir para escola.");
-            Pausa();
+        // Instanciar um objeto Pessoa
+        Pessoa pessoa = new Pessoa("", 0);
 
+        // Input para o nome
+        Console.WriteLine("\nEntão vamos lá!\nVocê acabou de nascer, teve um nascimento lindo, todos te amam, e não viam a hora de você nascer.\nBoas vindas à sua vida!");
+        Console.Write("Qual o seu nome? ");
+        string nome = Console.ReadLine();
 
-            // Instanciar um objeto Escola
-            Escola escola = new Escola("", "");
+        // Configurar o nome da pessoa
+        pessoa.SetNome(nome);
 
-            // Input para o nome da escola
-            Console.WriteLine("Escolha o nome da sua escola:");
-            string nomeEscola = Console.ReadLine();
-            escola.SetNomeEscola(nomeEscola);
+        // Imprimir mensagem de boas-vindas com o nome da pessoa
+        Console.WriteLine($"Muito bem {pessoa.Nome}, nos primeiros meses você deixou seus pais loucos,\nvocê costumava ficar quase todas as noites sem dormir, tem um lindo quarto, todos te amam, é uma briga para não devolver você para os seus pais,\nvocê tem ótimos tios e tias.");
+        Console.WriteLine("Passaram alguns anos...");
 
-            // Input para o nome da professora
-            Console.WriteLine("Qual o nome da sua professora?");
-            string nomeProfessora = Console.ReadLine();
-            escola.SetNomeProfessora(nomeProfessora);
+        Console.WriteLine("Chegou a hora de ir para escola.");
+        Pausa();
 
-            // Para imprimir os dados da escola
-            Console.WriteLine($"Escola: {escola.NomeEscola}");
-            Console.WriteLine($"Professora: {escola.NomeProfessora}");
-        }
+        // Instanciar um objeto Escola
+        Escola escola = new Escola("", "");
 
-        // Método para pausar e aguardar entrada do usuário
-        static void Pausa()
-        {
-            Console.WriteLine("Digite qualquer tecla para continuar");
-            Console.ReadKey();
-        }
+        // Input para o nome da escola
+        Console.WriteLine("Escolha o nome da sua escola:");
+        string nomeEscola = Console.ReadLine();
+        escola.SetNomeEscola(nomeEscola);
+
+        // Input para o nome da professora
+        Console.WriteLine("Qual o nome da sua professora?");
+        string nomeProfessora = Console.ReadLine();
+        escola.SetNomeProfessora(nomeProfessora);
+
+        // Para imprimir os dados da escola
+        Console.WriteLine($"\nEscola: {escola.NomeEscola}");
+        Console.WriteLine($"Professora: {escola.NomeProfessora}");
+    }
+
+    // Método para pausar e aguardar entrada do usuário
+    static void Pausa()
+    {
+        Console.WriteLine("Digite qualquer tecla para continuar");
+        Console.ReadKey();
     }
 }

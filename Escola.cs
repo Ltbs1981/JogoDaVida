@@ -1,27 +1,21 @@
-﻿using System;
-
-namespace JogoDaVida
+﻿public class Escola
 {
-    internal class Escola
+    public string NomeEscola { get; private set; } = "";
+    public string NomeProfessora { get; private set; } = "";
+
+    public Escola(string nomeEscola, string nomeProfessora)
     {
-        public string NomeProfessora { get; private set; }
-        public string NomeEscola { get; private set; }
+        NomeEscola = nomeEscola;
+        NomeProfessora = nomeProfessora;
+    }
 
-        public Escola(string nomeProfessora, string nomeEscola)
-        {
-            NomeProfessora = nomeProfessora;
-            NomeEscola = nomeEscola;
-        }
+    public void SetNomeEscola(string nomeEscola)
+    {
+        NomeEscola = nomeEscola;
+    }
 
-        // Tornando os métodos SetNomeProfessora e SetNomeEscola públicos
-        public void SetNomeProfessora(string nomeProfessora)
-        {
-            NomeProfessora = nomeProfessora;
-        }
-
-        public void SetNomeEscola(string nomeEscola)
-        {
-            NomeEscola = nomeEscola;
-        }
+    public void SetNomeProfessora(string nomeProfessora)
+    {
+        NomeProfessora = nomeProfessora;
     }
 }
